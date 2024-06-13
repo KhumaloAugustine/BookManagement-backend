@@ -25,6 +25,8 @@
 		<h2.version>1.4.200</h2.version>
 		<lombok.version>1.18.20</lombok.version>
 		<java.version>11</java.version>
+		<maven.compiler.source>22</maven.compiler.source>
+		<maven.compiler.target>22</maven.compiler.target>
 	</properties>
 	<dependencies>
 		<dependency>
