@@ -12,30 +12,19 @@ To access the database, you can go to [http://localhost:8080/h2-console/login.js
 Or go to [http://localhost:8080/graphiql](http://localhost:8080/graphiql) to start executing queries. For example:
 ```
 {
-  findAllBooks {
-    id
-    isbn
-    title
-    pageCount
-    author {
-      firstName
-      lastName
-    }
-  }
+  findAllBooks": [
+            {
+                "id": "1",
+                "title": "Java: A Beginner's Guide, Sixth Edition",
+                "description": "A comprehensive guide to Java programming",
+                "author": {
+                    "id": "1",
+                    "name": "Herbert Schildt",
+                    "__typename": "Author"
+                },
+                "__typename": "Book"
+            }
 }
-```
-
-Or:
-```
-mutation {
-  newBook(
-    title: "Java: The Complete Reference, Tenth Edition", 
-    isbn: "1259589331", 
-    author: 1) {
-      id title
-  }
-}
-```
 
 # Extras
 
