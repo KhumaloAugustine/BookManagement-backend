@@ -60,4 +60,28 @@ public class Mutation implements GraphQLMutationResolver {
             throw new IllegalArgumentException("Book not found with ID: " + id);
         }
     }
+
+    public Book updateBook(Long id, String title, String description, Long authorId) {
+        Optional<Book> optionalBook = bookRepository.findById(id);
+
+        if (optionalBook.isPresent()) {
+            Book book = optionalBook.get();
+
+            // Update book properties
+            book.setTitle(title);
+            book.setDescription(description);
+
+            // Update author if necessary
+            if (authorId != null) {
+                Author author = authorRepository.findById(authorId)
+                        .orElseThrow(() -> new RuntimeException("Author not found"));
+                book.setAuthor(author);
+            }
+
+            bookRepository.save(book);
+            return book;
+        } else {
+            throw new IllegalArgumentException("Book not found with ID: " + id);
+        }
+    }
 }
