@@ -38,7 +38,7 @@ public class BookManagementApplication extends SpringBootServletInitializer {
 	@Bean
 	public CommandLineRunner demo(AuthorRepository authorRepository, BookRepository bookRepository) {
 		return (args) -> {
-			Author author = new Author("Herbert Schildt");
+			Author author = new Author("Augustine Khumalo");
 			authorRepository.save(author);
 
 			bookRepository.save(new Book("Java: A Beginner's Guide, Sixth Edition", "A comprehensive guide to Java programming", 700, author));
