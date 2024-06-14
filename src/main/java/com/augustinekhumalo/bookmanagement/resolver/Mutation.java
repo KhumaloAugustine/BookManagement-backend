@@ -39,10 +39,12 @@ public class Mutation implements GraphQLMutationResolver {
         return book;
     }
 
-    public boolean deleteBook(Long id) {
-        if (bookRepository.existsById(id)) {
+    public Book deleteBook(Long id) {
+        Optional<Book> optionalBook = bookRepository.findById(id);
+        if (optionalBook.isPresent()) {
+            Book deletedBook = optionalBook.get();
             bookRepository.deleteById(id);
-            return true;
+            return deletedBook;
         } else {
             throw new IllegalArgumentException("Book not found with ID: " + id);
         }
