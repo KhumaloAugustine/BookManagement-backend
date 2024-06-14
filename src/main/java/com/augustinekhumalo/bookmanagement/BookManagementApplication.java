@@ -41,7 +41,7 @@ public class BookManagementApplication extends SpringBootServletInitializer {
 			Author author = new Author("Herbert Schildt");
 			authorRepository.save(author);
 
-			bookRepository.save(new Book("Java: A Beginner's Guide, Sixth Edition", "A comprehensive guide to Java programming", author));
+			bookRepository.save(new Book("Java: A Beginner's Guide, Sixth Edition", "A comprehensive guide to Java programming", 700, author));
 		};
 	}
 }

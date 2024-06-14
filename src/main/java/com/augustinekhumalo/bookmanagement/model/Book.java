@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 public class Book {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
@@ -14,6 +14,9 @@ public class Book {
     @Column(nullable = false)
     private String description;
 
+    @Column(nullable = false)
+    private int pageCount; // Added field
+
     @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
     private Author author;
@@ -21,9 +24,10 @@ public class Book {
     public Book() {
     }
 
-    public Book(String title, String description, Author author) {
+    public Book(String title, String description, int pageCount, Author author) {
         this.title = title;
         this.description = description;
+        this.pageCount = pageCount;
         this.author = author;
     }
 
@@ -51,6 +55,14 @@ public class Book {
         this.description = description;
     }
 
+    public int getPageCount() {
+        return pageCount;
+    }
+
+    public void setPageCount(int pageCount) {
+        this.pageCount = pageCount;
+    }
+
     public Author getAuthor() {
         return author;
     }
@@ -65,6 +77,7 @@ public class Book {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
+                ", pageCount=" + pageCount +
                 ", author=" + author +
                 '}';
     }

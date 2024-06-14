@@ -40,8 +40,12 @@ public class Mutation implements GraphQLMutationResolver {
     }
 
     public boolean deleteBook(Long id) {
-        bookRepository.deleteById(id);
-        return true;
+        if (bookRepository.existsById(id)) {
+            bookRepository.deleteById(id);
+            return true;
+        } else {
+            throw new IllegalArgumentException("Book not found with ID: " + id);
+        }
     }
 
     public Book updateBookPageCount(int pageCount, long id) {
@@ -49,14 +53,9 @@ public class Mutation implements GraphQLMutationResolver {
 
         if (optionalBook.isPresent()) {
             Book book = optionalBook.get();
-
-            // Update the page count
-//            book.setPageCount(pageCount);
-
-            // Save the updated book
+            book.setPageCount(pageCount);
             bookRepository.save(book);
-
-            return book; // Return the updated book
+            return book;
         } else {
             throw new IllegalArgumentException("Book not found with ID: " + id);
         }
