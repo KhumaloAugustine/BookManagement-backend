@@ -56,11 +56,9 @@ Fork the repository and create your branch from main.
 Make your changes, test thoroughly.
 Ensure your code follows the project's coding style.
 Create a pull request with a clear description of your changes.
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 Contact
-Augustine Khumalo - Email
+Augustine Khumalo - augustine.khumalo96@gmail.com
 
 Backend Project Link: https://github.com/KhumaloAugustine/BookManagement-backend
 
