@@ -103,7 +103,7 @@ License
 This project is licensed under the MIT License - see the LICENSE file in the frontend repository for details.
 
 # Contact
-Augustine Khumalo - Email
+Augustine Khumalo - augustine.khumalo96@gmail.com
 
 Frontend Project Link: https://github.com/KhumaloAugustine/BookManagement-frontend
 
